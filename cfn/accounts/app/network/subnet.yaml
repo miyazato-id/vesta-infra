@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: Simple Subnet
+
+Parameters:
+
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+
+Resources:
+
+  PublicSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VpcId
+
+      CidrBlock: 10.10.1.0/24
+
+      AvailabilityZone: ap-northeast-

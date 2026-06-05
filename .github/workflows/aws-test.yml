@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -24,9 +25,17 @@ jobs:
       - name: Verify Identity
         run: aws sts get-caller-identity
 
-      - name: Deploy CloudFormation
+      - name: Deploy VPC
         run: |
           aws cloudformation deploy \
             --stack-name vesta-vpc-dev \
             --template-file cfn/accounts/app/network/vpc.yaml \
+            --region ap-northeast-1
+
+      - name: Deploy Subnet
+        run: |
+          aws cloudformation deploy \
+            --stack-name vesta-subnet-dev \
+            --template-file cfn/accounts/app/network/subnet.yaml \
+            --parameter-overrides VpcId=vpc-0b3524b4667445890 \
             --region ap-northeast-1
