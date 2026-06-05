@@ -23,3 +23,10 @@ jobs:
 
       - name: Verify Identity
         run: aws sts get-caller-identity
+
+      - name: Deploy CloudFormation
+        run: |
+          aws cloudformation deploy \
+            --stack-name vesta-vpc-dev \
+            --template-file cfn/accounts/app/network/vpc.yaml \
+            --region ap-northeast-1
