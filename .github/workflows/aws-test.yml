@@ -37,5 +37,5 @@ jobs:
           aws cloudformation deploy \
             --stack-name vesta-subnet-dev \
             --template-file cfn/accounts/app/network/subnet.yaml \
-            --parameter-overrides VpcId=vpc-0b3524b4667445890 \
+            --parameter-overrides VpcId=vpc-0446ede8899eef348 \
             --region ap-northeast-1
