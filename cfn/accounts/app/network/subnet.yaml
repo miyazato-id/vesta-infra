@@ -16,4 +16,4 @@ Resources:
 
       CidrBlock: 10.10.1.0/24
 
-      AvailabilityZone: ap-northeast-
+      AvailabilityZone: ap-northeast-1c
