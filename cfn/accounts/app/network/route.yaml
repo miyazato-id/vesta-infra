@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: Route Table Association
+
+Parameters:
+
+  RouteTableId:
+    Type: String
+
+  SubnetId:
+    Type: String
+
+Resources:
+
+  SubnetRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref RouteTableId
+
+      SubnetId: !Ref SubnetId
